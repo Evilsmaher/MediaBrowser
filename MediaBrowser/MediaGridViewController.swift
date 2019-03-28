@@ -11,8 +11,7 @@ import UIKit
 class MediaGridViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     weak var browser: MediaBrowser?
     var selectionMode = false
-    //var initialContentOffset = CGPoint(x: 0.0, y: CGFloat.greatestFiniteMagnitude)
-    var initialContentOffset = CGPoint(x: 0.0, y: 0.0)
+    var initialContentOffset = CGPoint(x: 0.0, y: CGFloat.greatestFiniteMagnitude)
     
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -91,8 +90,8 @@ class MediaGridViewController: UICollectionViewController, UICollectionViewDeleg
         return floorcgf(x: view.bounds.width * 0.25)
     }
     
-    var margin = CGFloat(0.0)
-    var gutter = CGFloat(0.0)
+    var margin = CGFloat(1.0)
+    var gutter = CGFloat(1.0)
     
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -159,7 +158,7 @@ class MediaGridViewController: UICollectionViewController, UICollectionViewDeleg
         
         return CGSize(width: value, height: value)
     }
-    /*
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return gutter
     }
@@ -171,5 +170,5 @@ class MediaGridViewController: UICollectionViewController, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let margin = self.margin
         return UIEdgeInsets.init(top: margin, left: margin, bottom: margin, right: margin)
-    }*/
+    }
 }
