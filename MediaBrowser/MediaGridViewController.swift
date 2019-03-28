@@ -158,7 +158,7 @@ class MediaGridViewController: UICollectionViewController, UICollectionViewDeleg
         
         return CGSize(width: value, height: value)
     }
-    
+    /*
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return gutter
     }
@@ -170,5 +170,5 @@ class MediaGridViewController: UICollectionViewController, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let margin = self.margin
         return UIEdgeInsets.init(top: margin, left: margin, bottom: margin, right: margin)
-    }
+    }*/
 }
