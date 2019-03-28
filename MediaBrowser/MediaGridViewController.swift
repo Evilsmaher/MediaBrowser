@@ -91,7 +91,7 @@ class MediaGridViewController: UICollectionViewController, UICollectionViewDeleg
     }
     
     var margin = CGFloat(0.0)
-    var gutter = CGFloat(1.0)
+    var gutter = CGFloat(0.0)
     
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
