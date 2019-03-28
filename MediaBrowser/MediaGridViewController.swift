@@ -90,7 +90,7 @@ class MediaGridViewController: UICollectionViewController, UICollectionViewDeleg
         return floorcgf(x: view.bounds.width / 93.0)
     }
     
-    var margin = CGFloat(1.0)
+    var margin = CGFloat(0.0)
     var gutter = CGFloat(1.0)
     
     
