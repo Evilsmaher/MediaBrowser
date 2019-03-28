@@ -11,7 +11,8 @@ import UIKit
 class MediaGridViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     weak var browser: MediaBrowser?
     var selectionMode = false
-    var initialContentOffset = CGPoint(x: 0.0, y: CGFloat.greatestFiniteMagnitude)
+    //var initialContentOffset = CGPoint(x: 0.0, y: CGFloat.greatestFiniteMagnitude)
+    var initialContentOffset = CGPoint(x: 0.0, y: 0.0)
     
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
