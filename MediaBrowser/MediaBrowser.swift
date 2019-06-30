@@ -297,6 +297,8 @@ func floorcgf(x: CGFloat) -> CGFloat {
             selector: #selector(handlePhotoLoadingDidEndNotification),
             name: NSNotification.Name(rawValue: MEDIA_LOADING_DID_END_NOTIFICATION),
             object: nil)
+	    
+	self.showGrid(animated: true)
     }
 
     deinit {
