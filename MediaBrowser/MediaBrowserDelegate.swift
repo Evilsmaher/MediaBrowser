@@ -9,7 +9,8 @@
 import UIKit
 
 /// Required delegate to use MediaBrowser
-@objc public protocol MediaBrowserDelegate: class {
+@objc
+public protocol MediaBrowserDelegate {
     //MARK: Required methods
     
     /**
@@ -69,7 +70,6 @@ import UIKit
      */
     func actionButtonPressed(at photoIndex: Int, in mediaBrowser: MediaBrowser, sender: Any?)
     
-    
     /**
      Optional protocol when need callback about isMediaSelected
      
@@ -86,7 +86,6 @@ import UIKit
      - Parameter mediaBrowser: MediaBrowser
      */
     func mediaDid(selected: Bool, at index: Int, in mediaBrowser: MediaBrowser)
-    
     
     /**
      Optional protocol for title
