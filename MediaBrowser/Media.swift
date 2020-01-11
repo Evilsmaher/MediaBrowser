@@ -33,6 +33,7 @@ open class Media: NSObject {
     /// underlyingImage
     public var underlyingImage: UIImage?
     public var placeholderImage: UIImage?
+    public var videoComposition: AVVideoComposition?
 
     private let uuid = NSUUID().uuidString
     private var image: UIImage?
@@ -92,6 +93,16 @@ open class Media: NSObject {
         isVideo = true
         emptyImage = (previewImageURL == nil) ? true : false
         self.photoURL = previewImageURL
+    }
+    
+    public convenience init(videoURL: URL, previewImageURL: URL? = nil, videoComposition: AVVideoComposition?) {
+        self.init()
+        
+        self.videoURL = videoURL
+        isVideo = true
+        emptyImage = (previewImageURL == nil) ? true : false
+        self.photoURL = previewImageURL
+        self.videoComposition = videoComposition
     }
 
     //MARK: - Video

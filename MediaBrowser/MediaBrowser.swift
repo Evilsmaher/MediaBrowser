@@ -1339,7 +1339,7 @@ func floorcgf(x: CGFloat) -> CGFloat {
             p.getVideoURL() { url in
                 if let u = url {
                     DispatchQueue.main.async() {
-                        self.playVideo(videoURL: u, atPhotoIndex: index)
+                        self.playVideo(videoURL: u, atPhotoIndex: index, videoComposition: p.videoComposition)
                     }
                 } else {
                     self.setVideoLoadingIndicatorVisible(visible: false, atPageIndex: index)
@@ -1348,16 +1348,20 @@ func floorcgf(x: CGFloat) -> CGFloat {
         }
     }
     
-    func playVideo(videoURL: URL, atPhotoIndex index: Int) {
+    func playVideo(videoURL: URL, atPhotoIndex index: Int, videoComposition: AVVideoComposition? = nil) {
         // Setup player
         
         if let accessToken = delegate?.accessToken(for: videoURL) {
             let headerFields: [String: String] = ["Authorization": accessToken]
             let urlAsset = AVURLAsset(url: videoURL, options: ["AVURLAssetHTTPHeaderFieldsKey": headerFields])
             let playerItem = AVPlayerItem(asset: urlAsset)
+            playerItem.videoComposition = videoComposition
             currentVideoPlayerViewController.player = AVPlayer(playerItem: playerItem)
         } else {
-            currentVideoPlayerViewController.player = AVPlayer(url: videoURL)
+            let asset = AVURLAsset(url: videoURL)
+            let playerItem = AVPlayerItem(asset: asset)
+            playerItem.videoComposition = videoComposition
+            currentVideoPlayerViewController.player = AVPlayer(playerItem: playerItem)
         }
         
         if #available(iOS 9.0, *) {
@@ -1419,8 +1423,9 @@ func floorcgf(x: CGFloat) -> CGFloat {
                 object: player.currentItem
             )
             
+            player.seek(to: .zero)
             // Clear up
-            clearCurrentVideo()
+            //clearCurrentVideo()
             
             // Dismiss
             //            if let errorObj = notification.userInfo?[MPMoviePlayerPlaybackDidFinishReasonUserInfoKey] {
@@ -1439,7 +1444,7 @@ func floorcgf(x: CGFloat) -> CGFloat {
             //            }
         }
         
-        dismiss(animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
     }
     
     func clearCurrentVideo() {
